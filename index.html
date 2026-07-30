@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>日常単位換算ツール</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+   <!-- ============================
+         グローバルナビ（Apple風）
+    ============================ -->
+    <nav class="global-nav">
+        <ul>
+            <li><a href="#length">長さ</a></li>
+            <li><a href="#weight">重さ</a></li>
+            <li><a href="#temp">温度</a></li>
+            <li><a href="#paper">用紙</a></li>
+            <li><a href="#envelope">封筒</a></li>
+            <li><a href="#book">本</a></li>
+            <li><a href="#photo">写真</a></li>
+            <li><a href="#shoe">靴</a></li>
+            <li><a href="#screen">画面</a></li>
+            <li><a href="#post">郵便</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================
+         Hero（冒頭セクション）
+    ============================ -->
+    <section class="hero">
+        <h1>日常生活の単位を、もっとわかりやすく。</h1>
+        <p>長さ・重さ・温度・用紙・封筒・本・写真・靴・画面サイズ・郵便料金など、生活に必要な単位をまとめて換算。</p>
+    </section>
+
+    <!-- ============================
+         4列カードレイアウト
+    ============================ -->
+    <div class="unit-group-container">
+
+        <!-- 長さ -->
+        <div class="unit-group" id="length">
+            <button class="unit-toggle">長さの換算</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>長さ（cm → m / inch / yard）</span>
+                    <input type="number" id="cmInput" class="settings-input" placeholder="cm">
+                    <select id="cmMode" class="settings-input">
+                <option value="m">メートル（m）</option>
+                <option value="inch">インチ（inch）</option>
+                <option value="yard">ヤード（yd）</option>
+            </select>
+                    <span id="cmResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重さ -->
+        <div class="unit-group" id="weight">
+            <button class="unit-toggle">重さの換算</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>重さ（g → kg）</span>
+                    <input type="number" id="gInput" class="settings-input" placeholder="g">
+                    <span id="gResult" class="result-card"></span>
+                </div>
+                <!-- 追加：L → ガロン / バレル / ポンド -->
+        <div class="settings-item">
+            <span>容量（L → gal / bbl / lb）</span>
+
+            <input type="number" id="literInput" class="settings-input" placeholder="L">
+
+            <select id="literMode" class="settings-input">
+                <option value="gal">ガロン（gal）</option>
+                <option value="bbl">バレル（bbl）</option>
+                <option value="lb">ポンド（lb）※水換算</option>
+            </select>
+
+            <span id="literResult" class="result-card"></span>
+        </div>
+            </div>
+        </div>
+
+        <!-- 温度 -->
+        <div class="unit-group" id="temp">
+            <button class="unit-toggle">温度の換算</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>温度（℃ → ℉）</span>
+                    <input type="number" id="cInput" class="settings-input" placeholder="℃">
+                    <span id="cResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 用紙サイズ -->
+        <div class="unit-group" id="paper">
+            <button class="unit-toggle">用紙サイズ</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>用紙サイズ</span>
+                    <select id="paperSelect" class="settings-input">
+                        <option value="">選択してください</option>
+                        <option value="A0（841 × 1189 mm）">A0</option>
+                        <option value="A1（594 × 841 mm）">A1</option>
+                        <option value="A2（420 × 594 mm）">A2</option>
+                        <option value="A3（297 × 420 mm）">A3</option>
+                        <option value="A4（210 × 297 mm）">A4</option>
+                        <option value="A5（148 × 210 mm）">A5</option>
+                        <option value="A6（105 × 148 mm）">A6</option>
+                        <option value="A7（74 × 105 mm）">A7</option>
+                        <option value="A8（52 × 74 mm）">A8</option>
+                        <option value="A9（37 × 52 mm）">A9</option>
+                        <option value="A10（26 × 37 mm）">A10</option>
+                        <option value="B0（1030 × 1456 mm）">B0</option>
+                        <option value="B1（728 × 1030 mm）">B1</option>
+                        <option value="B2（515 × 728 mm）">B2</option>
+                        <option value="B3（364 × 515 mm）">B3</option>
+                        <option value="B4（257 × 364 mm）">B4</option>
+                        <option value="B5（182 × 257 mm）">B5</option>
+                        <option value="B6（128 × 182 mm）">B6</option>
+                        <option value="B7（91 × 128 mm）">B7</option>
+                        <option value="B8（64 × 91 mm）">B8</option>
+                        <option value="B9（45 × 64 mm）">B9</option>
+                        <option value="B10（32 × 45 mm）">B10</option>
+                    </select>
+                    <span id="paperResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 封筒サイズ -->
+        <div class="unit-group" id="envelope">
+            <button class="unit-toggle">封筒サイズ</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>封筒サイズ</span>
+                    <select id="envelopeSelect" class="settings-input">
+                        <option value="">選択してください</option>
+                        <option value="長形1号（142 × 332 mm）">長形1号</option>
+                        <option value="長形2号（119 × 277 mm）">長形2号</option>
+                        <option value="長形3号（120 × 235 mm）">長形3号</option>
+                        <option value="長形4号（90 × 205 mm）">長形4号</option>
+                        <option value="長形40号（90 × 225 mm）">長形40号</option>
+                        <option value="長形5号（90 × 185 mm）">長形5号</option>
+                        <option value="長形6号（110 × 220 mm）">長形6号</option>
+                        <option value="長形7号（92 × 165 mm）">長形7号</option>
+                        <option value="長形8号（119 × 197 mm）">長形8号</option>
+                        <option value="長形9号（98 × 152 mm）">長形9号</option>
+                        <option value="長形10号（90 × 140 mm）">長形10号</option>
+                        <option value="角形0号（287 × 382 mm）">角形0号</option>
+                        <option value="角形1号（270 × 382 mm）">角形1号</option>
+                        <option value="角形2号（240 × 332 mm）">角形2号</option>
+                        <option value="角形3号（216 × 277 mm）">角形3号</option>
+                        <option value="角形4号（197 × 267 mm）">角形4号</option>
+                        <option value="角形5号（190 × 240 mm）">角形5号</option>
+                        <option value="角形6号（162 × 229 mm）">角形6号</option>
+                        <option value="角形7号（142 × 205 mm）">角形7号</option>
+                        <option value="角形8号（119 × 197 mm）">角形8号</option>
+                        <option value="角形20号（229 × 324 mm）">角形20号</option>
+                        <option value="洋形1号（120 × 176 mm）">洋形1号</option>
+                        <option value="洋形2号（114 × 162 mm）">洋形2号</option>
+                        <option value="洋形3号（98 × 148 mm）">洋形3号</option>
+                        <option value="洋形4号（105 × 235 mm）">洋形4号</option>
+                        <option value="洋形5号（95 × 217 mm）">洋形5号</option>
+                        <option value="洋形6号（98 × 190 mm）">洋形6号</option>
+                        <option value="洋形7号（92 × 165 mm）">洋形7号</option>
+                        <option value="洋形8号（120 × 200 mm）">洋形8号</option>
+
+                    </select>
+                    <span id="envelopeResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 本のサイズ -->
+        <div class="unit-group" id="book">
+            <button class="unit-toggle">本のサイズ</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>本のサイズ</span>
+                    <select id="bookSelect" class="settings-input">
+                        <option value="">選択してください</option>
+                        <option value="文庫（105 × 148 mm）">文庫</option>
+                        <option value="新書（103 × 182 mm）">新書</option>
+                        <option value="四六判（127 × 188 mm）">四六判</option>
+                        <option value="A5雑誌（148 × 210 mm）">A5雑誌</option>
+                        <option value="B5雑誌（182 × 257 mm）">B5雑誌</option>
+                    </select>
+                    <span id="bookResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 写真サイズ -->
+        <div class="unit-group" id="photo">
+            <button class="unit-toggle">写真サイズ</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>写真サイズ</span>
+                    <select id="photoSelect" class="settings-input">
+                        <option value="">選択してください</option>
+                        <option value="L判（89 × 127 mm）">L判</option>
+                        <option value="2L判（127 × 178 mm）">2L判</option>
+                        <option value="六切（203 × 254 mm）">六切</option>
+                        <option value="四切（254 × 305 mm）">四切</option>
+                    </select>
+                    <span id="photoResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 靴のサイズ -->
+        <div class="unit-group" id="shoe">
+            <button class="unit-toggle">靴のサイズ</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>靴のサイズ（cm → inch）</span>
+                    <input type="number" id="shoeInput" class="settings-input" placeholder="cm">
+                    <span id="shoeResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 画面サイズ -->
+        <div class="unit-group" id="screen">
+            <button class="unit-toggle">画面サイズ</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>画面サイズ（inch → mm）</span>
+                    <input type="number" id="screenInput" class="settings-input" placeholder="inch">
+                    <span id="screenResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 郵便料金 -->
+        <div class="unit-group" id="post">
+            <button class="unit-toggle">郵便料金</button>
+            <div class="unit-content">
+                <div class="settings-item">
+                    <span>郵便料金（封筒サイズ → 料金）</span>
+                    <select id="postSelect" class="settings-input">
+                        <option value="">選択してください</option>
+                        <option value="長形3号">長形3号（定形）</option>
+                        <option value="長形4号">長形4号（定形）</option>
+                        <option value="角形2号">角形2号（定形外）</option>
+                        <option value="洋形2号">洋形2号（定形）</option>
+                    </select>
+                    <span id="postResult" class="result-card"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+          if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("./service-worker.js");
+          }
+    </script>
+
+<script src="script.js"></script>
+</body>
+</html>

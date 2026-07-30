@@ -1,0 +1,23 @@
+{
+  "name": "日常単位換算ツール",
+  "short_name": "単位換算",
+  "description": "長さ・重さ・温度・用紙・封筒・本・写真・靴・画面サイズ・郵便料金など、生活に必要な単位をまとめて換算できるツール。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f5f7",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "images/192-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/512-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
