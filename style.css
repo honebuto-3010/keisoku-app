@@ -399,7 +399,7 @@ body {
 
     /* 入力欄とセレクトの縦並び */
     .settings-item {
-        display: flex;
+        display: block;
         flex-direction: column;
         gap: 12px;
         margin-bottom: 20px;
@@ -407,6 +407,7 @@ body {
 
     /* 結果表示（透明ガラスカード） */
     .result-card {
+        display: block;
         min-height: 32px;
         width: 100%;
         padding: 12px 14px;
