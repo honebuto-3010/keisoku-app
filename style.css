@@ -407,6 +407,7 @@ body {
 
     /* 結果表示（透明ガラスカード） */
     .result-card {
+        min-height: 32px;
         width: 100%;
         padding: 12px 14px;
         background: rgba(255,255,255,0.15);
