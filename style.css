@@ -399,7 +399,7 @@ body {
 
     /* 入力欄とセレクトの縦並び */
     .settings-item {
-        display: block;
+        display: flex;
         flex-direction: column;
         gap: 12px;
         margin-bottom: 20px;
