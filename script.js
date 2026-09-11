@@ -61,13 +61,14 @@ const gInput = document.getElementById("gInput");
 const gResult = document.getElementById("gResult");
 
 function convertGram() {
-    const v = Number(gInput.value);
-    if (!v) {
+    if (gInput.value === "") {
         gResult.textContent = "";
         return;
     }
+    const v = Number(gInput.value);
     gResult.textContent = (v / 1000).toFixed(3) + " kg";
 }
+
 
 gInput.addEventListener("input", convertGram);
 
@@ -80,31 +81,27 @@ const literMode = document.getElementById("literMode");
 const literResult = document.getElementById("literResult");
 
 function convertLiter() {
-    const v = Number(literInput.value);
-    if (!v) {
+    if (literInput.value === "") {
         literResult.textContent = "";
         return;
     }
+    const v = Number(literInput.value);
 
     let result = "";
-
     switch (literMode.value) {
         case "gal":
             result = (v * 0.264172).toFixed(3) + " gal";
             break;
-
         case "bbl":
             result = (v / 158.987).toFixed(4) + " bbl";
             break;
-
         case "lb":
-            // 水換算：1L ≒ 1kg → 1kg = 2.20462 lb
             result = (v * 2.20462).toFixed(2) + " lb";
             break;
     }
-
     literResult.textContent = result;
 }
+
 
 literInput.addEventListener("input", convertLiter);
 literMode.addEventListener("change", convertLiter);
