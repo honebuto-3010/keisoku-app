@@ -24,10 +24,12 @@ const cmMode = document.getElementById("cmMode");
 const cmResult = document.getElementById("cmResult");
 
 function convertCm() {
-    const v = Number(cmInput.value);
-    if (!v) {
-        cmResult.textContent = "";
-        return;
+   const v = Number(cmInput.value);
+if (cmInput.value === "") {
+    cmResult.textContent = "";
+    return;
+
+
     }
 
     let result = "";
