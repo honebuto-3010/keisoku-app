@@ -202,7 +202,7 @@ for (let i = 0; i < bubbleCount; i++) {
   bubble.classList.add('bubble');
 
   // ★ 超巨大サイズ（400〜600px）
-  const size = Math.random() * 200 + 100; // 60〜180px
+  const size = Math.random() * 250 + 125; // 60〜180px
   bubble.style.width = `${size}px`;
   bubble.style.height = `${size}px`;
 
