@@ -22,54 +22,55 @@ body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
-    background: #f5f5f7;
+    background: #ff8d28;
     color: #111;
     line-height: 1.7;
 }
 
-/* ============================
-   グローバルナビ（両端均等）
-============================ */
 .global-nav {
     width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #e5e5ea;
+    background: #ff8d28;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+/* ナビ全体を軽くする */
 .global-nav ul {
     margin: 0;
-    padding: 0 40px;
+    padding: 0 24px;
     list-style: none;
     display: flex;
-    justify-content: space-between; /* ★両端均等 */
+    gap: 24px;              /* ← 均等幅をやめて余白で調整 */
     align-items: center;
     height: 56px;
 }
 
+/* 各項目は必要な幅だけ */
 .global-nav li {
-    flex: 1;               /* ★均等幅 */
-    text-align: center;    /* ★中央揃え */
+    flex: 0 0 auto;         /* ← 均等幅を解除 */
+    text-align: center;
 }
 
+/* Apple風の軽い文字 */
 .global-nav a {
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    color: #333;
+    font-size: 14px;        /* ← 少し小さくして軽く */
+    font-weight: 400;       /* ← 細字で上品に */
+    color: #fff;            /* ← 白文字で背景と調和 */
     padding: 6px 10px;
-    border-radius: 8px;
+    border-radius: 6px;
     transition: 0.2s;
-    display: inline-block;
+    opacity: 0.85;          /* ← 存在感を弱める */
 }
 
 .global-nav a:hover {
-    background: #f2f2f7;
-    color: #007aff;
+    background: rgba(255,255,255,0.15); /* ← Apple風の薄いホバー */
+    opacity: 1;
 }
+
 
 /* スマホ対応 */
 @media (max-width: 768px) {
@@ -83,26 +84,75 @@ body {
         text-align: left;
     }
 }
-
-/* ============================
-   Hero（Apple公式の冒頭セクション風）
-============================ */
 .hero {
-    max-width: 900px;
-    margin: 40px auto 20px;
-    text-align: center;
-    padding: 20px;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  text-align: center;
+  padding: 120px 20px 80px;
+  background: #f2c27b;
 }
 
-.hero h1 {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 10px;
+/* 背景レイヤー（シャボン玉） */
+.bubble-area {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #FF8D28;
+  overflow: hidden;
 }
 
-.hero p {
-    font-size: 16px;
-    color: #555;
+/* テキストレイヤー（前面） */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  color: #1c1c1e;
+}
+
+/* タイトル */
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  color: #1c1c1e;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+/* サブタイトル */
+.hero-sub {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #1c1c1e;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+/* 超巨大シャボン玉（深いオレンジ） */
+.bubble {
+  position: absolute;
+  bottom: -350px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(230, 92, 0, 0.90),   /* ★中心：深いオレンジ #E65C00 */
+    rgba(255, 150, 60, 0.18)  /* ★外側：柔らかい光のオレンジ */
+  );
+  border-radius: 50%;
+  animation: rise 26s infinite ease-in-out;
+  opacity: 0.75;
+}
+
+
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-500px) scale(1.15); opacity: 1; }
+  100% { transform: translateY(-900px) scale(1); opacity: 0.5; }
 }
 
 /* ============================
@@ -118,7 +168,7 @@ body {
 
 /* カード本体（Apple製品カード風） */
 .unit-group {
-    background: #fff;
+    background: #f5a623;
     border-radius: 24px;
     padding: 20px;
     box-shadow: 0 8px 28px rgba(0,0,0,0.08);
@@ -135,20 +185,22 @@ body {
 ============================ */
 .unit-toggle {
     width: 100%;
-    background: #fff;
+    background: #FFE2C4; /* ★淡いオレンジに変更（浮かない） */
+    color: #A84F00;      /* ★濃いオレンジ系の文字色で統一 */
     border-radius: 18px;
     padding: 16px 20px;
     font-size: 18px;
     font-weight: 600;
-    text-align: left;
-    border: 1px solid #ddd;
+    text-align: center;
+    border: 1px solid rgba(255, 141, 40, 0.25); /* ★薄いオレンジ枠 */
     cursor: pointer;
     transition: 0.3s;
 }
 
 .unit-toggle:hover {
-    background: #f0f0f0;
+    background: #FFD1A8; /* ★少し濃いオレンジでホバー */
 }
+
 
 /* 折りたたみ内容 */
 .unit-content {
@@ -269,5 +321,23 @@ body {
         grid-template-columns: 1fr;
         gap: 12px;
         padding: 20px;
+    }
+}
+/* スマホ最適化 */
+@media (max-width: 600px) {
+    .hero {
+        padding: 80px 20px 60px; /* 余白を少し減らす */
+    }
+
+    .hero-title {
+        font-size: 32px;        /* Apple公式のスマホサイズ */
+        letter-spacing: -0.3px; /* 詰めすぎない */
+        line-height: 1.25;      /* 間延びを防ぐ */
+    }
+
+    .hero-sub {
+        font-size: 16px;        /* 読みやすい最適値 */
+        line-height: 1.6;       /* 少し詰める */
+        max-width: 90%;         /* スマホ幅に合わせる */
     }
 }
