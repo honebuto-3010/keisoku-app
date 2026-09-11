@@ -193,3 +193,24 @@ document.querySelectorAll(".unit-toggle").forEach(btn => {
         content.style.display = content.style.display === "block" ? "none" : "block";
     });
 });
+// ★ 巨大シャボン玉を増やす（5〜7個）
+const area = document.querySelector('.bubble-area');
+const bubbleCount = 6; // ←ここで数を調整できる
+
+for (let i = 0; i < bubbleCount; i++) {
+  const bubble = document.createElement('div');
+  bubble.classList.add('bubble');
+
+  // ★ 超巨大サイズ（400〜600px）
+  const size = Math.random() * 200 + 100; // 60〜180px
+  bubble.style.width = `${size}px`;
+  bubble.style.height = `${size}px`;
+
+  // ランダム位置（左右）
+  bubble.style.left = `${Math.random() * 80}%`;
+
+  // ゆっくりめの速度
+  bubble.style.animationDuration = `${24 + Math.random() * 14}s`;
+
+  area.appendChild(bubble);
+}
