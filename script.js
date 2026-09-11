@@ -30,7 +30,7 @@ if (cmInput.value === "") {
     return;
 }
 
-    }
+    
 
     let result = "";
 
