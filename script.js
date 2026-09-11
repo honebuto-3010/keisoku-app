@@ -28,7 +28,7 @@ function convertCm() {
 if (cmInput.value === "") {
     cmResult.textContent = "";
     return;
-
+}
 
     }
 
