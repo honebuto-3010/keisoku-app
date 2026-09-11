@@ -394,7 +394,7 @@ body {
         font-size: 1em;
         background: rgba(255,255,255,0.12);
         border-radius: 12px;
-        color: #fff;
+        color: #333;
     }
 
     /* 入力欄とセレクトの縦並び */
