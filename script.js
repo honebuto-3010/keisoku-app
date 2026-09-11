@@ -8,7 +8,7 @@ function bindInputConverter(inputId, resultId, formula) {
     if (!input || !result) return;
 
     input.addEventListener("input", () => {
-        if (input.value === "") {
+        if (!input.value.trim()) {
             result.textContent = "";
             return;
         }
