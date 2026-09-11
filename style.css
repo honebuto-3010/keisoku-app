@@ -430,5 +430,6 @@ body {
         padding: 18px 20px;
         border-radius: 16px;
         margin-bottom: 24px;
+        overflow: visible;
     }
 }
