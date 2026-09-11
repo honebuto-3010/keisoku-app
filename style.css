@@ -185,20 +185,34 @@ body {
 ============================ */
 .unit-toggle {
     width: 100%;
-    background: #FFE2C4; /* ★淡いオレンジに変更（浮かない） */
-    color: #A84F00;      /* ★濃いオレンジ系の文字色で統一 */
-    border-radius: 18px;
-    padding: 16px 20px;
-    font-size: 18px;
+    background: rgba(255, 255, 255, 0.15); /* ガラス */
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+
+    color: rgba(255,255,255,0.95); /* 白文字 */
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
     font-weight: 600;
-    text-align: center;
-    border: 1px solid rgba(255, 141, 40, 0.25); /* ★薄いオレンジ枠 */
+    letter-spacing: 0.03em;
+
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: none;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.12),
+        0 3px 8px rgba(0,0,0,0.08);
+
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.25s ease;
+    margin-bottom: 14px;
 }
 
 .unit-toggle:hover {
-    background: #FFD1A8; /* ★少し濃いオレンジでホバー */
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 32px rgba(0,0,0,0.18),
+        0 4px 12px rgba(0,0,0,0.10);
 }
 
 
@@ -222,6 +236,7 @@ body {
     gap: 16px;
     margin-bottom: 12px;
 }
+
 
 .settings-item span:first-child {
     font-size: 16px;
@@ -339,5 +354,80 @@ body {
         font-size: 16px;        /* 読みやすい最適値 */
         line-height: 1.6;       /* 少し詰める */
         max-width: 90%;         /* スマホ幅に合わせる */
+    }
+}
+/* ============================
+   スマホ最適化（幅600px以下）
+   ============================ */
+@media (max-width: 600px) {
+
+    /* ラベル（長さ / 重さ / 温度など） */
+    .settings-item span {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;      /* 入力欄の上で中央揃え */
+        word-break: break-word;  /* 長い英語でも折り返し */
+        margin-bottom: 10px;
+        font-size: 0.95em;
+        color: rgba(255,255,255,0.92);
+    }
+
+    /* 入力欄（cmなど） */
+    .settings-input {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 1em;
+
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 12px;
+
+        color: #fff;
+        outline: none;
+    }
+
+    /* セレクト（m / inch / yard） */
+    select.settings-input {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 1em;
+        background: rgba(255,255,255,0.12);
+        border-radius: 12px;
+        color: #fff;
+    }
+
+    /* 入力欄とセレクトの縦並び */
+    .settings-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    /* 結果表示（透明ガラスカード） */
+    .result-card {
+        width: 100%;
+        padding: 12px 14px;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 12px;
+
+        color: rgba(255,255,255,0.95);
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-top: 6px;
+    }
+
+    /* unit-content（カテゴリの中身） */
+    .unit-content {
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        padding: 18px 20px;
+        border-radius: 16px;
+        margin-bottom: 24px;
     }
 }
