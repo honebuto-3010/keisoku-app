@@ -7,14 +7,19 @@ function bindInputConverter(inputId, resultId, formula) {
 
     if (!input || !result) return;
 
-    input.addEventListener("input", () => {
+    const handler = () => {
         if (!input.value.trim()) {
             result.textContent = "";
             return;
         }
         result.textContent = formula(Number(input.value));
-    });
+    };
+
+    input.addEventListener("input", handler);
+    input.addEventListener("change", handler);   // ← スマホ縦画面で必須
+    input.addEventListener("blur", handler);     // ← キーボード閉じた瞬間に確定
 }
+
 
 // ===============================
 // 3. 長さ（cm → m / inch / yard）
