@@ -25,6 +25,15 @@ body {
     background: #ff8d28;
     color: #111;
     line-height: 1.7;
+     background:
+        /* 横線（白） */
+        linear-gradient(rgba(255,255,255,0.22) 0.8px, transparent 0.8px),
+        /* 縦線（白） */
+        linear-gradient(90deg, rgba(255,255,255,0.22) 0.8px, transparent 0.8px),
+        /* オレンジ背景 */
+        #FF8D28;
+    background-size: 24px 24px;
+    color: #fff;
 }
 
 .global-nav {
@@ -35,6 +44,14 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    background:
+        linear-gradient(rgba(255,255,255,0.18) 0.8px, transparent 0.8px),
+        linear-gradient(90deg, rgba(255,255,255,0.12) 0.8px, transparent 0.8px),
+        #FF8D28;
+    background-size: 24px 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 /* ナビ全体を軽くする */
@@ -92,6 +109,20 @@ body {
   text-align: center;
   padding: 120px 20px 80px;
   background: #f2c27b;
+    background:
+        linear-gradient(rgba(255,255,255,0.15) 0.8px, transparent 0.8px),
+        linear-gradient(90deg, rgba(255,255,255,0.15) 0.8px, transparent 0.8px),
+        #FF8D28;
+    background-size: 24px 24px;
+
+    backdrop-filter: blur(1px);
+
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    text-align: center;
+    padding: 120px 20px 80px;
 }
 
 /* 背景レイヤー（シャボン玉） */
@@ -101,8 +132,53 @@ body {
   z-index: 0;
   background: #FF8D28;
   overflow: hidden;
+    background:
+        linear-gradient(rgba(255,255,255,0.15) 0.8px, transparent 0.8px),
+        linear-gradient(90deg, rgba(255,255,255,0.15) 0.8px, transparent 0.8px),
+        #FF8D28;
+    background-size: 24px 24px;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
 }
 
+.circle {
+  position: absolute;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(230, 92, 0, 0.75),
+    rgba(255, 150, 60, 0.12)
+  );
+  border-radius: 50%;
+  opacity: 0.55;
+}
+
+/* 小円（左上） */
+.circle-small {
+  width: 248px;
+  height: 248px;
+  top: -20%;
+  left: -18%;
+  border: 1px solid #f2f4f7;
+}
+
+/* 中円（右上） */
+.circle-medium {
+  width: 401px;
+  height: 401px;
+  top: 38%;
+  right: 40%;
+  border: 1px solid #f2f4f7;
+}
+
+/* 大円（左下） */
+.circle-large {
+  width: 650px;
+  height: 650px;
+  bottom: -5%;
+  left: 20%;
+  border: 1px solid #fff;
+}
 /* テキストレイヤー（前面） */
 .hero-content {
   position: relative;
@@ -131,28 +207,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-}
-
-/* 超巨大シャボン玉（深いオレンジ） */
-.bubble {
-  position: absolute;
-  bottom: -350px;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(230, 92, 0, 0.90),   /* ★中心：深いオレンジ #E65C00 */
-    rgba(255, 150, 60, 0.18)  /* ★外側：柔らかい光のオレンジ */
-  );
-  border-radius: 50%;
-  animation: rise 26s infinite ease-in-out;
-  opacity: 0.75;
-}
-
-
-
-@keyframes rise {
-  0% { transform: translateY(0) scale(1); opacity: 0.6; }
-  50% { transform: translateY(-500px) scale(1.15); opacity: 1; }
-  100% { transform: translateY(-900px) scale(1); opacity: 0.5; }
 }
 
 /* ============================
