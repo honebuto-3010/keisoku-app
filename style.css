@@ -132,14 +132,21 @@ body {
   z-index: 0;
   background: #FF8D28;
   overflow: hidden;
-    background:
-        linear-gradient(rgba(255,255,255,0.15) 0.8px, transparent 0.8px),
-        linear-gradient(90deg, rgba(255,255,255,0.15) 0.8px, transparent 0.8px),
-        #FF8D28;
-    background-size: 24px 24px;
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
+  background:
+    /* 横線（濃い白） */
+    linear-gradient(rgba(255,255,255,0.22) 1px, transparent 1px),
+    /* 横線（薄い白） */
+    linear-gradient(rgba(255,255,255,0.10) 2px, transparent 2px),
+
+    /* 縦線（濃い白） */
+    linear-gradient(90deg, rgba(255,255,255,0.22) 1px, transparent 1px),
+    /* 縦線（薄い白） */
+    linear-gradient(90deg, rgba(255,255,255,0.10) 2px, transparent 2px),
+
+    /* オレンジ背景 */
+    #FF8D28;
+
+  background-size: 24px 24px;
 }
 
 .circle {
